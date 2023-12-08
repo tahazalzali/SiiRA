@@ -26,26 +26,28 @@ export const Card: FC<CardProps> = ({
     descriptionStyle
 }) => {
 
-  const cardContainer: ViewStyle = {
+  const $cardContainer: ViewStyle = {
         marginVertical: spacing.lg,
         paddingHorizontal: spacing.xxl,
         borderRadius: 8,
         justifyContent: 'center',
-        height: Dimensions.get('screen').height/5,
+        height: Dimensions.get('screen').height/4,
         backgroundColor, 
+        position: 'relative',
         ...style, 
     };
 
-    const titleStyleCombined: TextStyle = {
+    const $titleStyleCombined: TextStyle = {
         fontSize: 22,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginBottom: spacing.md,
+        marginVertical: spacing.sm,
+        bottom:'10%',
         color: titleColor,
         ...titleStyle,
     };
 
-    const descriptionStyleCombined: TextStyle = {
+    const $descriptionStyleCombined: TextStyle = {
         fontSize: 16,
         textAlign: 'center',
         marginHorizontal: spacing.lg,
@@ -54,9 +56,9 @@ export const Card: FC<CardProps> = ({
     };
 
     return (
-        <View style={cardContainer}>
-            <Text style={titleStyleCombined} tx={title}/>
-            <Text style={descriptionStyleCombined} tx={description}/>
+        <View style={$cardContainer}>
+            <Text adjustsFontSizeToFit style={$titleStyleCombined} tx={title}/>
+            <Text adjustsFontSizeToFit style={$descriptionStyleCombined} tx={description}/>
         </View>
     );
 };

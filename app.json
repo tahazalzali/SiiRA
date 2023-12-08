@@ -3,7 +3,6 @@
   "name": "SiiRA",
   "displayName": "SiiRA",
   "owner": "tahazalzali",
-
   "expo": {
     "name": "SiiRA",
     "slug": "SiiRA",
@@ -12,7 +11,7 @@
     "orientation": "portrait",
     "extra": {
       "eas": {
-        "projectId": "bc3516c7-047d-4701-906e-c96396704275"
+        "projectId": "960e00e0-6536-4add-8178-871b9118f894"
       }
     },
     "icon": "./assets/images/app-icon-all.png",
@@ -34,7 +33,7 @@
       }
     },
     "ios": {
-      "icon": "./assets/images/app-icon-ios.png",
+      "icon": "./assets/images/app-icon-all.png",
       "supportsTablet": true,
       "bundleIdentifier": "com.siira",
       "splash": {

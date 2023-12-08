@@ -49,7 +49,7 @@ const $inputPresets: ViewStyle = {
         borderWidth: 1,
         borderColor: colors.palette.neutral400,
         flexDirection: 'row',
-        height: 45,
+        height: 40,
         width: '80%',
         alignSelf: 'center',
         borderRadius: 15,
@@ -66,7 +66,8 @@ const $textInputStyle: TextStyle = {
     justifyContent: 'center',
 };
 const $inputContainerStyle: ViewStyle = {
-    bottom:4
+    bottom:-5,
+    width: '100%',
 }
 
 const $leftComponentStyle: ViewStyle = { marginRight: spacing.sm };

@@ -14,9 +14,9 @@ export const Step3: FC = () => {
                     tx="step3.ifJim"
                     preset="heading"
                 />
-                <View style={{ height: 300, width: Dimensions.get('screen').width/1.05 }}>
+                <View style={$videoContainer}>
                     <WebView
-                        style={{ flex: 1 }}
+                        style={$videoStyle}
                         javaScriptEnabled={true}
                         source={{ uri: 'https://www.youtube.com/embed/qoDBwCYn1Pk' }}
                     />
@@ -31,6 +31,15 @@ const $container: ViewStyle = {
     backgroundColor: colors.background,
 };
 
+const $videoContainer: ViewStyle = {
+    height: 300,
+     width: Dimensions.get('screen').width/1.05 
+}
+
+const $videoStyle: ViewStyle = {
+    flex:1,
+}
+
 const $topContainer: ViewStyle = {
     flexShrink: 1,
     flexGrow: 1,
@@ -40,7 +49,7 @@ const $topContainer: ViewStyle = {
 };
 
 const $mainTextGreen: TextStyle = {
-    color: '#0e8384',
+    color: colors.green,
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: spacing.md,

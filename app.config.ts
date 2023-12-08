@@ -8,7 +8,7 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
   return {
     ...config,
     owner: "tahazalzali", 
-    slug: "sii-ra",
+    slug: "SiiRA",
     plugins: [
       ...existingPlugins,
       require("./plugins/withSplashScreen").withSplashScreen,

@@ -1,23 +1,38 @@
-import React, { FC } from 'react';
+import React, { FunctionComponent } from 'react';
 import { View, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import { AutoImage, Text, Screen, Icon } from "app/components";
 import { colors, spacing } from '../../theme';
+import { TxKeyPath } from 'app/i18n';
 
-
-type CardProps = {
-    children: React.ReactNode,
-    backgroundColor: string
+interface CardProps {
+    children: React.ReactNode;
+    backgroundColor: string;
 }
 
+interface RowProps {
+    iconType: 'check' | 'x';
+    textKey: TxKeyPath;
+}
+const CheckIcon: FunctionComponent = () => <Icon icon='check' color={colors.green} style={$cardContainer} />;
+const CloseIcon: FunctionComponent = () => <Icon icon='x' color={colors.error} style={$cardContainer} />;
 const vsImage = require('../../../assets/images/vs-image.png');
-const CheckIcon: FC = () => <Icon icon='check' color={colors.green} style={{ marginLeft: 5 }} />
-const RowContainer: FC = ({ children }) => <View style={$rowContainer}>{children}</View>
-const CloseIcon: FC = () => <Icon icon='x' color={colors.error} style={{ marginLeft: 5 }} />
-const CardHeader = ({ children, backgroundColor }:CardProps) => (<View style={[{ backgroundColor }, $cardHeader]}>{children}</View>);
-const Card = ({ children }:CardProps) => (<View style={$cardStyle}>{children}</View>);
 
 
-export const Step4: FC = () => {
+const CardElement: FunctionComponent<RowProps> = ({ iconType, textKey }) => (
+    <View style={$rowContainer}>
+        {iconType === 'check' ? <CheckIcon /> : <CloseIcon />}
+        <Text style={$textSmallGrey} tx={textKey} />
+    </View>
+);
+
+const CardHeader: FunctionComponent<CardProps> = ({ children, backgroundColor }) => (
+    <View style={[{ backgroundColor }, $cardHeader]}>{children}</View>
+);
+
+const Card: FunctionComponent<Pick<CardProps, 'children'>> = ({ children }) => (
+    <View style={$cardStyle}>{children}</View>
+);
+export const Step4: FunctionComponent = () => {
     return (
         <Screen preset='scroll' >
             <View style={$container}>
@@ -26,47 +41,16 @@ export const Step4: FC = () => {
                     <CardHeader backgroundColor={colors.grey_light}>
                         <Text style={$headerGrey} tx="step4.freelancers" preset="heading" />
                     </CardHeader>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.reduceOffice" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.keepBudget" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.hireFor" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.workFrom" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CloseIcon />
-                        <Text style={$textSmallGrey} tx="step4.dedication" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CloseIcon />
-                        <Text style={$textSmallGrey} tx="step4.highCaliber" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CloseIcon />
-                        <Text style={$textSmallGrey} tx="step4.fullAttention" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CloseIcon />
-                        <Text style={$textSmallGrey} tx="step4.controlOver" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CloseIcon />
-                        <Text style={$textSmallGrey} tx="step4.betterTeam" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CloseIcon />
-
-                        <Text style={$textSmallGrey} tx="step4.alignWith" />
-                    </RowContainer>
+                    <CardElement iconType='check' textKey='step4.reduceOffice' />
+                    <CardElement iconType='check' textKey="step4.keepBudget" />
+                    <CardElement iconType='check' textKey="step4.hireFor" />
+                    <CardElement iconType='check' textKey="step4.workFrom" />
+                    <CardElement iconType='x' textKey="step4.dedication" />
+                    <CardElement iconType='x' textKey="step4.highCaliber" />
+                    <CardElement iconType='x' textKey="step4.fullAttention" />
+                    <CardElement iconType='x' textKey="step4.controlOver" />
+                    <CardElement iconType='x' textKey="step4.betterTeam" />
+                    <CardElement iconType='x' textKey="step4.alignWith" />
                 </Card>
 
                 <AutoImage source={vsImage} style={$vsImageStyle} />
@@ -74,46 +58,16 @@ export const Step4: FC = () => {
                     <CardHeader backgroundColor={colors.green}>
                         <Text style={$headerGreen} tx="step4.didicatedRemote" preset="heading" />
                     </CardHeader>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.reduceOffice" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.keepBudget" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.hireFor" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.workFrom" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.dedication" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.highCaliber" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.fullAttention" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.controlOver" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.betterTeam" />
-                    </RowContainer>
-                    <RowContainer>
-                        <CheckIcon />
-                        <Text style={$textSmallGrey} tx="step4.alignWith" />
-                    </RowContainer>
+                    <CardElement iconType='check' textKey='step4.reduceOffice' />
+                    <CardElement iconType='check' textKey="step4.keepBudget" />
+                    <CardElement iconType='check' textKey="step4.hireFor" />
+                    <CardElement iconType='check' textKey="step4.workFrom" />
+                    <CardElement iconType='check' textKey="step4.dedication" />
+                    <CardElement iconType='check' textKey="step4.highCaliber" />
+                    <CardElement iconType='check' textKey="step4.fullAttention" />
+                    <CardElement iconType='check' textKey="step4.controlOver" />
+                    <CardElement iconType='check' textKey="step4.betterTeam" />
+                    <CardElement iconType='check' textKey="step4.alignWith" />
                 </Card>
             </View>
         </Screen>
@@ -148,21 +102,27 @@ const $headerGreen: TextStyle = {
     textAlign: 'center',
 };
 
-const $cardHeader: ViewStyle = { 
+const $cardHeader: ViewStyle = {
     borderRadius: 12,
-     borderBottomEndRadius: 0,
-      borderBottomStartRadius: 0
-      , marginBottom: spacing.sm }
+    borderBottomEndRadius: 0,
+    borderBottomStartRadius: 0
+    , marginBottom: spacing.sm
+}
 
 const $rowContainer: ViewStyle = {
     flexDirection: 'row',
     width: '80%',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
 };
 
+const $cardContainer: ImageStyle = {
+    marginLeft: spacing.xxs,
+}
+
 const $cardStyle: ViewStyle = {
-     borderRadius: 12, borderBottomWidth: 2.5,
+    borderRadius: 12, borderBottomWidth: 2.5,
     borderLeftWidth: 1.5,
+    width: '100%',
     borderRightWidth: 1.5,
     borderTopWidth: 0.8, marginVertical: spacing.sm, borderColor: colors.grey_dark
 }
