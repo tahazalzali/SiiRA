@@ -11,7 +11,6 @@ export const Step1: FC = observer(function Step1() {
   return (
     <Screen preset='fixed' style={$container}>
       <View style={$topContainer}>
-
         <Text
           style={$mainTextOrange}
           tx="step1.makeTheWorld"

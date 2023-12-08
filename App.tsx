@@ -7,4 +7,5 @@ function SiiRAApp() {
   return <App hideSplashScreen={SplashScreen.hideAsync} />
 }
 
-export default SiiRAApp
+export default SiiRAApp;
+

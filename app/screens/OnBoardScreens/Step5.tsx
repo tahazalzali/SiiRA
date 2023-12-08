@@ -41,7 +41,7 @@ const $getStartedButton: ViewStyle = {
     marginBottom: spacing.lg,
 };
 const $mainTextGreen: TextStyle = {
-    color: '#0e8384',
+    color: colors.green,
     fontSize: 22,
     textAlign: 'center',
     fontWeight: 'bold',

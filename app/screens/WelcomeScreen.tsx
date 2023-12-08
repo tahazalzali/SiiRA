@@ -46,9 +46,7 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
       <View style={[$bottomContainer, $bottomContainerInsets]}>
         <Input placeholder='welcomeScreen.mobileNumber' keyboardType="numeric" LeftComponent={CountrySelection} containerStyle={$inputTop} />
         <Button tx='welcomeScreen.login'  textStyle={$buttonText} style={$buttonStyle}/>
-
       </View>
-
     </Screen>
   )
 })
